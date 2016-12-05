@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dump" />
+        <module name="my-bundle" />
+        <module name="org.apache.karaf.demos.branding.shell" />
+        <module name="org.apache.karaf.demos.command" />
+        <module name="osgi.commons-lang" />
+        <module name="web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demos" target="1.5" />
+      <module name="dump" target="1.5" />
+      <module name="my-bundle" target="1.5" />
+      <module name="my-feature" target="1.5" />
+      <module name="my-kar" target="1.5" />
+      <module name="org.apache.karaf.demos.branding" target="1.5" />
+      <module name="org.apache.karaf.demos.branding.shell" target="1.5" />
+      <module name="org.apache.karaf.demos.command" target="1.5" />
+      <module name="org.apache.karaf.demos.deployer" target="1.5" />
+      <module name="osgi.commons-lang" target="1.5" />
+      <module name="web" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
