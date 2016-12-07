@@ -47,22 +47,7 @@
         <dependency>
             <groupId>com.nimbusds</groupId>
             <artifactId>oauth2-oidc-sdk</artifactId>
-            <version>5.17.6</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.nimbusds</groupId>
-                    <artifactId>nimbus-jose-jwt</artifactId>
-                </exclusion>
-                <!--<exclusion>-->
-                    <!--<groupId>com.github.stephenc.jcip</groupId>-->
-                    <!--<artifactId>jcip-annotations</artifactId>-->
-                <!--</exclusion>-->
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>nimbus-jose-jwt</artifactId>
-            <version>4.27.1</version>
+            <version>5.18.1</version>
         </dependency>
     </dependencies>
 
@@ -78,18 +63,21 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Bundle-Activator>org.apache.karaf.demos.deployer.bundle.Activator</Bundle-Activator>
-                        <Bundle-ClassPath>.,nimbus-jose-jwt-4.27.1.jar,oauth2-oidc-sdk-5.17.6.jar</Bundle-ClassPath>
-                        <!--<Embed-Dependency>nimbus-jose-jwt;scope=compile|runtime;inline=true</Embed-Dependency>-->
-                        <!--<Embed-Dependency>nimbus-jose-jwt</Embed-Dependency>-->
-                        <!--<Import-Package/>-->
-                            <!--!net.jcip.annotations-->
-                        <!--</Import-Package>-->
+                        <Embed-Dependency>
+                            !bcprov-jdk15on,
+                            !bcpkix-jdk15on,
+                            !mail,
+                            !commons-collections4,
+                            *;scope=compile;inline=false
+                        </Embed-Dependency>
+                        <Embed-Transitive>true</Embed-Transitive>
+                        <Embed-Directory>OSGI-INF/lib</Embed-Directory>
+                        <Import-Package>
+                            *;resolution:=optional
+                        </Import-Package>
                         <Export-Package>
-                            org.apache.karaf.demos.deployer.bundle*;version=${project.version}
-                            <!--!com.nimbusds.oauth2.sdk.id-->
+                            com.nimbusds.*
                         </Export-Package>
-                        <!--<Embed-Transitive>true</Embed-Transitive>-->
-                        <!--,jcip-annotations,json-smart-->
                     </instructions>
                 </configuration>
             </plugin>
